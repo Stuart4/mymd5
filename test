@@ -1,0 +1,21 @@
+#!/bin/bash
+
+TEST=`./md5 "hello world"`
+CORRECT=`echo "hello world" | md5sum`
+
+if [ "$TEST" != "$CORRECT" ]
+then
+	echo "test1 failed";
+	echo "TEST: $TEST"
+	echo "CORRECT: $CORRECT"
+fi
+
+TEST=`./md5 ""`
+CORRECT=`echo "" | md5sum`
+
+if [ "$TEST" != "$CORRECT" ]
+then
+	echo "test2 failed";
+	echo "TEST: $TEST"
+	echo "CORRECT: $CORRECT"
+fi
